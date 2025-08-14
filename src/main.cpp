@@ -1,7 +1,7 @@
 #include <cmath>
 #include <iostream>
 #include <string>
-#include "util.h"
+#include "vmath.h"
 #define PI  3.1415
 #define ROWS 80
 #define COLLS 40
