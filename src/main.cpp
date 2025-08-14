@@ -1,11 +1,13 @@
 #include <cmath>
 #include <iostream>
 #include <string>
+#include "util.h"
 #define PI  3.1415
 #define ROWS 80
 #define COLLS 40
 #define GRIDSIZE ROWS*COLLS
-#define SPEED (16.0/10000.0)
+#define SPEED (16.0/500.0)
+#include "shaders.h"
 
 char shader(int x,int y,double t);
 void render(std::string& buffer,double t) ;
@@ -15,7 +17,7 @@ int main() {
     int frames =0;
     using namespace std;
     string buffer;
-    while (frames <10000000) {
+    while (frames <1000) {
         buffer.clear();
         render(buffer,time);
         cout<<buffer<<endl;
@@ -35,24 +37,7 @@ int main() {
  }
 
 
-char shader(int x,int y,double t) {
-    auto rows = (double) ROWS;
-    auto colls= (double) COLLS;
-    double uvx = (x*2.0-colls)/colls;
-    double uvy= (y*2.0-rows)/colls;
-    uvy = -uvy;
-    uvx-=0.9;
-   
-    double d = uvx*uvx+uvy*uvy;
-    if (d<1.2) {
-        if (sin(uvx*2.0+t*10.0)*0.4<uvy) {
-            return ' ';
-        }
 
-        return '@';
-    }
-   return '.';
-}
 
 
 
