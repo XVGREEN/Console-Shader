@@ -29,7 +29,7 @@
 	 make 
 
  
-###✨ Final Note 
+### ✨ Final Note 
  Go make some awesome shaders — ASCII style! 😎
  
  
