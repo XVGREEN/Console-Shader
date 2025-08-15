@@ -5,13 +5,13 @@
 #define PI  3.1415
 #define ROWS 60
 #define COLLS 100
-#define GRIDSIZE ROWS*COLLS
-#define SPEED 5e-2
+#define SPEED 5e-3
 #include "include//vmath.h"
-#include "shaders//bouncing.h"
+#include "shaders//shaders.h"
 
 void render (float t);
 char buffer [ROWS][COLLS];
+
 int main() {
     double time = 0;
     uint32_t frames =0;
@@ -22,16 +22,15 @@ int main() {
         printf("%s",buffer);
         usleep(40000);   
         time+=SPEED;
-        frames+=1;
-       
+        frames+=1;   
     }
 }
 
- void render(float t) {
+void render(float t) {
     for(uint8_t y=0;y<ROWS;y++){
 		for(uint8_t x=0;x<COLLS;x++){
 		    vec2 fc{float(x),float(y)};
-			buffer[y][x]=shaders::bouncing_ball(fc,t);
+			buffer[y][x]=shaders::circle(fc,t);
 		}  
 		buffer[y][COLLS-1]='\n';
     }

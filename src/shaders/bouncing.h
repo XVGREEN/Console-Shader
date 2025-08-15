@@ -16,12 +16,12 @@ namespace shaders{
          if (d<0.0) {
              out='@';
              if(sin(c.x*3.0)*.4<c.y){
-
              	out = '.';
              }
          }
+         	
          if(uv.y<0.0){
-         	out ='-';
+         	out='-';
          }
          return out;
      }
