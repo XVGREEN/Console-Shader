@@ -16,12 +16,10 @@ char buffer [ROWS][COLLS];
 int main() {
     double time = 0;
     uint32_t frames =0;
-    char  img[GRIDSIZE];
     while (frames <1000) {        
-        render(time);
-        memcpy(img,buffer,GRIDSIZE);
-        img[GRIDSIZE - 1] = '\0';
-        std:: cout<<img<<std::endl;
+        render(time);   
+        buffer[ROWS-1][COLLS-1] = '\0';
+        printf("%s",buffer);
         usleep(70000);   
         time+=SPEED;
         frames+=1;
