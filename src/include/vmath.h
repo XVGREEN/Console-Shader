@@ -20,6 +20,9 @@ float length(vec2 v){
 	return sqrt(v.x*v.x+v.y*v.y);
 }
 
+float jump(float x){
+	return -4.0*x*x+4.0*x;
+}
 float invLerp(float edge0, float edge1, float x){
 
 	return  (x - edge0) / (edge1 - edge0);
@@ -86,18 +89,16 @@ float hash(vec2 p) {
     return h - floor(h);
 }
 
+// inigo quilez heart sdf c version
 float sdHeart(vec2 p) {
     if (p.x < 0.0f) p.x = -p.x;
-
     if (p.y + p.x > 1.0f) {
         vec2 a = sub(p, (vec2){0.25f, 0.75f});
         return sqrt(dot(a, a)) - sqrt(2.0f) / 4.0f;
     }
     vec2 a1 = sub(p, (vec2){0.00f, 1.00f});
     vec2 a2 = sub(p, scale((vec2){0.5f, 0.5f}, fmax(p.x + p.y, 0.0f)));
-
     float d = fmin(dot(a1, a1), dot(a2, a2));
-
     return sqrt(d) * ((p.x - p.y) >= 0.0f ? 1.0f : -1.0f);
 }
 
