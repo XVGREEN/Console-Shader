@@ -11,6 +11,22 @@ vec2  fract (vec2 v){
 	vec2 r   {fract(v.x),fract(v.y)};
 	return r;
 }
+float step(float x,float y){
+	return (x>y)?0:1;
+}
+vec2 step (vec2 v1,vec2 v2){
+	vec2 r;
+	r.x= step(v1.x,v2.x);
+	r.y= step(v1.y,v2.y);
+}
+
+vec2 cos(vec2 v){
+	return (vec2){cos(v.x),cos(v.y)};
+}
+
+vec2 sin(vec2 v){
+	return (vec2){sin(v.x),sin(v.x)};
+}
 vec2 abs(vec2 v){
 	v.x=fabs(v.x);
 	v.y= fabs(v.y);

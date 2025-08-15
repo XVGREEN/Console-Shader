@@ -8,11 +8,9 @@ namespace shaders{
  	    
         uv.y = -uv.y;
         uv.y*=2.0;
-      //  uv.y+=.5;
-        char out =' ';
-        if (sin(length(uv)*3.0+t*40.0)<0.0) {
-      		 out='@';
-         } 
+        float d = abs(sin(length(uv)+t*20.0));
+        char out = values_contrast[(int)(d*4)];
+      
          return out;
 	}
 
