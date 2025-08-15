@@ -1,38 +1,42 @@
 #include <cmath>
 #include <iostream>
 #include <string>
+#include <stdint.h>
+#include <unistd.h>
 #include "vmath.h"
 #define PI  3.1415
-#define ROWS 80
-#define COLLS 40
+#define ROWS 60
+#define COLLS 80
 #define GRIDSIZE ROWS*COLLS
-#define SPEED (16.0/500.0)
+#define SPEED 1e-3
 #include "shaders.h"
 
-char shader(int x,int y,double t);
-void render(std::string& buffer,double t) ;
-void render(char buffer[],double t) ;
+
+void render (float t);
+char buffer [ROWS][COLLS];
+
 int main() {
     double time = 0;
-    int frames =0;
-    using namespace std;
-    string buffer;
-    while (frames <1000) {
-        buffer.clear();
-        render(buffer,time);
-        cout<<buffer<<endl;
-        system("clear");
+    uint32_t frames =0;
+    char  img[GRIDSIZE];
+    while (frames <1000) {        
+        render(time);
+        memcpy(img,buffer,GRIDSIZE);
+        img[GRIDSIZE - 1] = '\0';
+        std:: cout<<img<<std::endl;
+        usleep(70000);   
         time+=SPEED;
         frames+=1;
+       
     }
 }
-// i dont like this approach, might remove division later
- void render(std::string &buffer,double t) {
-    for (int i= 0;i<GRIDSIZE;i++) {
-        int  x =i%ROWS;
-        int  y = i/COLLS;
-        buffer.push_back(shader(x,y,t));
-        if(x%ROWS==0) buffer+="\n";
+
+ void render(float t) {
+    for(uint8_t y=0;y<ROWS;y++){
+		for(uint8_t x=0;x<COLLS;x++){
+			buffer[y][x]=shader(x,y,t);
+		}  
+		buffer[y][COLLS-1]='\n';
     }
  }
 

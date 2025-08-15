@@ -28,6 +28,10 @@ vec2 polar(vec2 v){
 
 
 vec2 rot(vec2 v,float a){
+    float c = cos(a);
+    float s= sin(a);
 	vec2 r;
+	r.x = c*v.x-s*v.y;
+	r.y= s*v.x+c*v.y;
 	return r;
 }
