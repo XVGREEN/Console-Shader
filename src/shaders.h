@@ -1,19 +1,25 @@
-
- char shader(int x,int y,double t) {
+#include "vmath.h"
+char  shader(vec2 fc ,double t) {
    auto rows = (double) ROWS;
    auto colls= (double) COLLS;
-   double uvx = (x*2.0-colls)/colls;
-   double uvy= (y*2.0-rows)/colls;
-    uvy = -uvy;
-    // uvx-=0.9;
+   vec2 uv;   
+   uv.x  = (fc.x*2.0-colls)/rows;
+   uv.y = (fc.y*2.0-rows)/rows;
+   uv.y = -uv.y;
+   uv.y*=2.0;
+   uv.y+=.5;
+   auto gv = fract(uv);
+   gv.x-=0.5;
+   gv.y-=0.5;  
+  // gv= scale(uv) 
+   char out=' ';
+   double  inc= fabs(sin(t*10.0))*0.6; 
+   if (sdHeart(scale(gv,2.0+inc))<0.0) {
+      out='@';
+   }
+   
 
-    double d = uvx*uvx+uvy*uvy;
-   if (d<0.5) {
-       if (sin(uvx*2.0+t*10.0)*0.4<uvy) {
-          return ' ';
-        }
-      return '@';
-  }
-    return '.';
+  
+    return out;
 }
 

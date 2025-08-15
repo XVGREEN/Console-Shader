@@ -3,12 +3,11 @@
 #include <string>
 #include <stdint.h>
 #include <unistd.h>
-#include "vmath.h"
 #define PI  3.1415
 #define ROWS 60
-#define COLLS 80
+#define COLLS 100
 #define GRIDSIZE ROWS*COLLS
-#define SPEED 1e-3
+#define SPEED 1e-2
 #include "shaders.h"
 
 
@@ -34,7 +33,8 @@ int main() {
  void render(float t) {
     for(uint8_t y=0;y<ROWS;y++){
 		for(uint8_t x=0;x<COLLS;x++){
-			buffer[y][x]=shader(x,y,t);
+		    vec2 fc{float(x),float(y)};
+			buffer[y][x]=shader(fc,t);
 		}  
 		buffer[y][COLLS-1]='\n';
     }
