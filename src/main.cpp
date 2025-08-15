@@ -8,12 +8,11 @@
 #define COLLS 100
 #define GRIDSIZE ROWS*COLLS
 #define SPEED 1e-2
-#include "shaders.h"
-
+#include "include//vmath.h"
+#include "shaders//circle.h"
 
 void render (float t);
 char buffer [ROWS][COLLS];
-
 int main() {
     double time = 0;
     uint32_t frames =0;
@@ -34,14 +33,8 @@ int main() {
     for(uint8_t y=0;y<ROWS;y++){
 		for(uint8_t x=0;x<COLLS;x++){
 		    vec2 fc{float(x),float(y)};
-			buffer[y][x]=shader(fc,t);
+			buffer[y][x]=shaders::circle(fc,t);
 		}  
 		buffer[y][COLLS-1]='\n';
     }
  }
-
-
-
-
-
-
