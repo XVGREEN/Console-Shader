@@ -15,6 +15,7 @@ char buffer [ROWS][COLLS];
 int main() {
     double time = 0;
     uint32_t frames =0;
+    printf("\033[2J");
     while (frames <1000) {        
         render(time);   
         buffer[ROWS-1][COLLS-1] = '\0';
@@ -22,7 +23,7 @@ int main() {
         printf("%s",buffer);
         usleep(40000);   
         time+=SPEED;
-        frames+=1;   
+        frames+=1;  
     }
 }
 
@@ -35,3 +36,4 @@ void render(float t) {
 		buffer[y][COLLS-1]='\n';
     }
  }
+

@@ -10,15 +10,9 @@
 
 ### 🔄 Changing Shaders
  
- 1. Open the render function in the source code.
- 
- 
- 2. Change the name of the shader function being used.
- 
- 
- 3. In this project, a “shader” is just a C/C++ function that calculates a character for a given coordinate and time.
+ 1. Open main.cpp
+ 2. In the render function, change ...shaders::circle to any of the functions found in the shaders folder or your custom shader.
   
- 
 ### 🛠️ How to Compile
  
  1. Open your terminal.

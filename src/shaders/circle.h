@@ -9,7 +9,7 @@ namespace shaders{
         uv.y = -uv.y;
         uv.y*=2.0;
         float d = abs(sin(length(uv)+t*20.0));
-        char out = values_contrast[(int)(d*4)];
+        char out = values_smooth[(int)(d*69)];
       
          return out;
 	}
