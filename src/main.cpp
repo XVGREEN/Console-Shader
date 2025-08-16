@@ -12,15 +12,18 @@
 void render (float t);
 char buffer [ROWS][COLLS];
 
+#include <stdio.h>
+
 int main() {
     double time = 0;
     uint32_t frames =0;
     printf("\033[2J");
+    
     while (frames <1000) {        
         render(time);   
         buffer[ROWS-1][COLLS-1] = '\0';
         printf("\033[H"); 
-        printf("%s",buffer);
+        printf("\033[31m%s\033[0m", buffer);
         usleep(40000);   
         time+=SPEED;
         frames+=1;  
@@ -31,7 +34,7 @@ void render(float t) {
     for(uint8_t y=0;y<ROWS;y++){
 		for(uint8_t x=0;x<COLLS;x++){
 		    vec2 fc{float(x),float(y)};
-			buffer[y][x]=shaders::circle(fc,t);
+			buffer[y][x]=shaders::heart(fc,t);
 		}  
 		buffer[y][COLLS-1]='\n';
     }

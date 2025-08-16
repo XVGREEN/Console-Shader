@@ -9,7 +9,7 @@ namespace shaders{
         uv.y = -uv.y;
         uv.y*=2.0;
         uv.y+=.3;
-       uv= scale(uv,1-jump(fract(t*40.0))*.5);
+       uv= scale(uv,1-jump(fract(t*12.0))*.3);
        char out =' ';
         if (sdHeart(uv)<0.0) {
              out='@';
