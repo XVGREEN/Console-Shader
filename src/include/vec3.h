@@ -83,9 +83,17 @@ struct vec3 {
 };
 
 vec3 operator*(float scalar, const vec3& v){
-	
+	 return v*scalar;
 }
 
 float length(const vec3&  v){
 	return sqrt(v.x*v.x+ v.y*v.y+ v.z*v.z);
+}
+
+vec3 normalize (vec3 v){
+	float  r = length(v);
+	return v/r;
+}
+float dot (vec3 a,vec3 b){
+	return a.x*b.x+a.y*b.y+a.z*b.z;
 }

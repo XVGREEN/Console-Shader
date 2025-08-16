@@ -15,3 +15,6 @@
 float sdCircle(vec2 v,float r){
 	return length(v)-r;
 }
+float sdCircle(vec3 v,float r){
+    return length(v)-r;
+}

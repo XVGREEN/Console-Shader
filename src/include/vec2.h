@@ -77,10 +77,21 @@
      return v * scalar;
  }
 
-float length(vec2 v){
+float length(const vec2  &v){
 	return sqrt(v.x*v.x+v.y*v.y);
 }
 
 float dot (vec2 a,vec2 b){
 	return a.x*b.x+ a.y*b.y;
+}
+vec2 normalize(const vec2 & v){
+	float r= length(v);
+	return v/r;
+}
+
+vec2 rot(vec2 v, float angle) {
+    float c = cos(angle);
+    float s = sin(angle);
+    return vec2(c * v.x - s * v.y,
+                s * v.x + c * v.y);
 }

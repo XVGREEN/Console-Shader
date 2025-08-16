@@ -6,7 +6,7 @@
  #include <stdio.h>
 #define PI  3.1415
 #define ROWS 60
-#define COLLS 60
+#define COLLS 100
 #include "include//vmath.h"
 #include "shaders//shaders.h"
 
@@ -19,8 +19,8 @@ int main() {
     auto start = std::chrono::high_resolution_clock::now(); //start clock
     auto now = std::chrono::high_resolution_clock::now();  //end time
     double time;    
-    shader = shaders::circle;
-    auto  range = shaders::range::medium; //value range
+    shader = shaders::box_world;
+    auto  range = shaders::range::contrast; //value range
     
     printf("\033[2J");
     while (true) {   
@@ -31,7 +31,7 @@ int main() {
         buffer[ROWS-1][COLLS-1] =L'\0';
 		printf("\033[H");
 		wprintf(L"%ls\n", buffer);
-        usleep(40000);   
+        usleep(16);   
     }
 }
 

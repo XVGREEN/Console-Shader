@@ -30,6 +30,7 @@ namespace shaders {
 
 //#include "bouncing.h"
 #include "circle.h"
+#include "boxworld.h"
 //#include "heart.h"
 
 
