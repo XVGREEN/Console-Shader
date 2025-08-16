@@ -1,7 +1,11 @@
 struct vec3 {
     float x, y, z;
 
-    
+    vec3() : x(0.0f), y(0.0f), z(0.0f) {}
+    vec3(float X, float Y, float Z) : x(X), y(Y), z(Z) {}
+    vec3(float X) : x(X), y(X), z(X) {}
+    vec3(const vec2& v, float Z) : x(v.x), y(v.y), z(Z) {}
+ 
     vec2 xx() const { return {x, x}; }
     vec2 xy() const { return {x, y}; }
     vec2 xz() const { return {x, z}; }
@@ -78,5 +82,10 @@ struct vec3 {
     }
 };
 
-vec3 operator*(float scalar, const vec3& v);
+vec3 operator*(float scalar, const vec3& v){
+	
+}
 
+float length(const vec3&  v){
+	return sqrt(v.x*v.x+ v.y*v.y+ v.z*v.z);
+}
