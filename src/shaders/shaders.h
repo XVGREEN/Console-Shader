@@ -1,7 +1,7 @@
 namespace shaders {
 	char values_smooth[] = " .'`^\",:;Il!i><~+_-?][}{1)(|\\/tfjrxnuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B@";
 	char values_medium[] = " .:-=+*#%@";
-	char values_contrast[] = " .oO@";	
+	char values_contrast[] = ".oO@";	
 	const wchar_t values_box[] =L" ░▒▓█";
 	enum range  {contrast,medium,smooth,box};
 	wchar_t get_char(double val,int mode){

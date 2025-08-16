@@ -5,8 +5,8 @@
 #include <wchar.h>
  #include <stdio.h>
 #define PI  3.1415
-#define ROWS 60
-#define COLLS 100
+#define ROWS 80
+#define COLLS 110
 #include "include//vmath.h"
 #include "shaders//shaders.h"
 
@@ -20,18 +20,17 @@ int main() {
     auto now = std::chrono::high_resolution_clock::now();  //end time
     double time;    
     shader = shaders::box_world;
-    auto  range = shaders::range::contrast; //value range
+    auto  range = shaders::range::box; //value range
     
     printf("\033[2J");
     while (true) {   
         now = std::chrono::high_resolution_clock::now(); 
         time = std::chrono::duration<double>(now - start).count();    
-          
         render(time,range);   
         buffer[ROWS-1][COLLS-1] =L'\0';
 		printf("\033[H");
 		wprintf(L"%ls\n", buffer);
-        usleep(16);   
+        usleep(20);   
     }
 }
 
