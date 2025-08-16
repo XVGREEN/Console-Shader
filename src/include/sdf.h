@@ -1,5 +1,5 @@
 //inigo quilez heart distance function
-float sdHeart(vec2 p) {
+/*float sdHeart(vec2 p) {
     if (p.x < 0.0f) 
         p.x = -p.x;
     if (p.y + p.x > 1.0f) {
@@ -10,7 +10,7 @@ float sdHeart(vec2 p) {
     vec2 a2 = sub(p, scale((vec2){0.5f, 0.5f}, 1.0f));
     float d = fmin(dot(a1, a1), dot(a2, a2));
     return sqrt(d) * ((p.x - p.y) >= 0.0f ? 1.0f : -1.0f);
-}
+}*/
 
 float sdCircle(vec2 v,float r){
 	return length(v)-r;

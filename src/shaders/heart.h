@@ -1,6 +1,6 @@
 namespace shaders{
    
-     char heart(vec2 fc ,double t) {
+     wchar_t heart(vec2 fc ,double t,int mode) {
         auto rows = (double) ROWS;
         auto colls= (double) COLLS;
         vec2 uv;
@@ -10,7 +10,7 @@ namespace shaders{
         uv.y*=2.0;
         uv.y+=.3;
        uv= scale(uv,1-jump(fract(t*12.0))*.3);
-       char out =' ';
+       wchar_t out =' ';
         if (sdHeart(uv)<0.0) {
              out='@';
         }
