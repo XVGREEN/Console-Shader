@@ -27,3 +27,10 @@ float pulse (float time,float bpm){
     float t = fmod(time, beatTime) / beatTime;
     return jump(t);
 }
+
+
+float clamp(float x, float minVal, float maxVal) {
+    if (x < minVal) return minVal;
+    if (x > maxVal) return maxVal;
+    return x;
+}

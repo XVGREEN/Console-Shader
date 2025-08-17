@@ -12,7 +12,8 @@
 
 void render (float t,int mode);
 wchar_t buffer [ROWS][COLLS];
-float  (*shader)(vec2 v,double);  // assign to your custom shader function
+float  (*shader)(vec2,double);  // assign to your custom shader function
+
 
 int main() {
     //init clock
@@ -20,11 +21,11 @@ int main() {
     auto now = std::chrono::high_resolution_clock::now();  //end time
     double time;    
 
-    shader = shaders::eye;
-    auto range = shaders::range::medium; //value range
+    shader = shaders::trig;
+    auto range = shaders::range::box; //value range
     int frame=0;
-   
     printf("\033[2J");
+
     while (true) {   
         now = std::chrono::high_resolution_clock::now(); 
         time = std::chrono::duration<double>(now - start).count();    
@@ -38,7 +39,6 @@ int main() {
         frame++; 
         if(frame==100000)frame=0;   
    }
-
 
 }
 

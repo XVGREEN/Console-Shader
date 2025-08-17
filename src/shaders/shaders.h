@@ -32,6 +32,7 @@ namespace shaders {
 #include "circle.h"
 #include "boxworld.h"
 #include "eye.h"
+#include "trig.h"
 //#include "heart.h"
 
 

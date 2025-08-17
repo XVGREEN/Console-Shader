@@ -95,3 +95,18 @@ vec2 rot(vec2 v, float angle) {
     return vec2(c * v.x - s * v.y,
                 s * v.x + c * v.y);
 }
+
+
+
+vec2 abs(const vec2& v) {
+    return { std::fabs(v.x), std::fabs(v.y) };
+}
+
+vec2 max(const vec2& v, float s) {
+    return { std::fmax(v.x, s), std::fmax(v.y, s) };
+}
+
+vec2 min(const vec2& v, float s) {
+    return { std::fmin(v.x, s), std::fmin(v.y, s) };
+}
+

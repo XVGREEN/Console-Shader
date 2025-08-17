@@ -8,8 +8,8 @@
          uv.y*=2.0;
          float out=0.0;
          
-         out = abs(sdCircle(uv,0.7+0.5*jump(fract(t)))-0.2);
-         out = step(out,0.1);
+         out =  sdBox(uv,vec2(0.5));
+         out = step(out,0.0);
          
           
          return out;

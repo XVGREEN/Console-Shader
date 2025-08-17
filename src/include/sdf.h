@@ -18,3 +18,17 @@ float sdCircle(vec2 v,float r){
 float sdCircle(vec3 v,float r){
     return length(v)-r;
 }
+
+//inigo quilez sdbox 
+float sdBox( vec2 p,  vec2 b )
+{
+    vec2 d = abs(p)-b;
+    return length(max(d,0.0)) +fmin(fmax(d.x,d.y),0.0);
+}
+
+//inigo quilez line segment sdf
+float sdLine( vec2 p, vec2 a,  vec2 b ) { 
+	vec2 pa = p-a, ba = b-a; 
+	float h = clamp( dot(pa,ba)/dot(ba,ba), 0.0, 1.0 );
+	return length( pa - ba*h ); 
+}
