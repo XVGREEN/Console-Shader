@@ -50,5 +50,5 @@ void render(float t,int mode) {
 		}  
 		buffer[y][COLLS-1]=L'\n';
     }
- }
+ }	
 
