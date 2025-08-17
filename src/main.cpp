@@ -22,7 +22,7 @@ int main() {
     double time;    
 
     shader = shaders::trig;
-    auto range = shaders::range::box; //value range
+    auto range = shaders::range::contrast; //value range
     int frame=0;
     printf("\033[2J");
 

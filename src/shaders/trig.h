@@ -22,7 +22,7 @@
      
        d= fmin(d,fabs(1.-(length(uv))));
        d += step(d,0.05);
-       if(abs(uv.x)<0.05 || abs(uv.y)<0.05) d=0.0;
+       if(abs(uv.x)<0.05 || abs(uv.y)<0.06) d=0.0;
        d= clamp(d,0.0,1.0);
                   
          return 1.- d;
