@@ -13,7 +13,7 @@
 void render (float t,int mode);
 wchar_t buffer [ROWS][COLLS];
 float  (*shader)(vec2,double);  // assign to your custom shader function
-
+void change_shader(double t);
 
 int main() {
     //init clock
@@ -21,7 +21,7 @@ int main() {
     auto now = std::chrono::high_resolution_clock::now();  //end time
     double time;    
 
-    shader = shaders::trig;
+    shader = shaders::birth;
     auto range = shaders::range::contrast; //value range
     int frame=0;
     printf("\033[2J");
@@ -30,7 +30,8 @@ int main() {
         now = std::chrono::high_resolution_clock::now(); 
         time = std::chrono::duration<double>(now - start).count();    
         if(frame%5==0){
-     	   render(time,range);   
+     	   render(time,range); 
+     	   change_shader(time); 
   	       buffer[ROWS-1][COLLS-1] =L'\0';
      	   printf("\033[H");
 	       wprintf(L"%ls\n", buffer);
@@ -52,3 +53,19 @@ void render(float t,int mode) {
     }
  }	
 
+
+void change_shader(double t) {
+	shader= shaders::birth;
+    t= fmod(t,32.0);
+	if(t>=8.0){
+		shader= shaders::trouchet;
+	}
+	if(t>=16){
+		shader = shaders::trig;		
+	}
+	if(t>=24){
+		shader= shaders::arrows;
+	}
+	
+		
+}

@@ -33,7 +33,9 @@ namespace shaders {
 #include "boxworld.h"
 #include "eye.h"
 #include "trig.h"
-//#include "heart.h"
+#include"trouchet.h"
+#include "arrows.h"
+#include "birth.h"
 
 
    

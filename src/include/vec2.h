@@ -31,7 +31,9 @@
          return {x * scalar, y * scalar};
      }
  
-    
+    vec2 operator*(const vec2 & other)const{
+    	return vec2(x*other.x,y*other.y);
+    }
      vec2 operator/(float scalar) const {
          return {x / scalar, y / scalar};
      }
@@ -110,3 +112,10 @@ vec2 min(const vec2& v, float s) {
     return { std::fmin(v.x, s), std::fmin(v.y, s) };
 }
 
+vec2 floor(vec2 v){
+ return vec2(floor(v.x),floor(v.y));
+}
+
+vec2 fract (vec2 v){
+	return vec2(fract(v.x),fract(v.y));;
+}
